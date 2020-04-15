@@ -95,3 +95,9 @@ Movie Movie::takeMovieInput() {
 
 
 }
+
+void Movie::likeMovie() {
+
+	likes++;
+
+}

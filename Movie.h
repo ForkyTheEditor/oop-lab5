@@ -4,6 +4,8 @@
 using namespace std;
 
 class Movie {
+	friend class MovieRepository;
+
 
 private:
 
@@ -27,6 +29,9 @@ public:
 
 	//Method to transform user input into a Movie object
 	static Movie takeMovieInput();
+	
+	//Adds 1 like to the movie's likes
+	void likeMovie();
 
 };
 

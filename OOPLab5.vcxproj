@@ -141,12 +141,14 @@
     <ClInclude Include="AdminUI.h" />
     <ClInclude Include="Movie.h" />
     <ClInclude Include="MovieRepository.h" />
+    <ClInclude Include="UserUI.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AdminUI.cpp" />
     <ClCompile Include="MainApp.cpp" />
     <ClCompile Include="Movie.cpp" />
     <ClCompile Include="MovieRepository.cpp" />
+    <ClCompile Include="UserUI.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

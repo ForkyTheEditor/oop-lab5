@@ -10,6 +10,7 @@ private:
 
 public:
 
+
 	//Adds a movie to the repository
 	//If the movie already exists then it doesn't add it and it notifies the user on the screen
 	//Parameter: The added movie
@@ -33,5 +34,16 @@ public:
 
 	//Prints all the movies in the repository to the console
 	void listAllMovies();
+
+	//Prints all the movies in the genre
+	//If the string parameter is empty lists all the movies
+	void listMoviesByGenre(std::string genre);
+
+	//Prints the movies in the genre one at a time, opening a browser with the URL
+	//If the string parameter is empty lists all the movies
+	void iterateMoviesURLByGenre(std::string Genre, MovieRepository& watchlist);
+
+	//Adds 1 to the likes of the movie at index index
+	void likeMovie(int index);
 
 };
