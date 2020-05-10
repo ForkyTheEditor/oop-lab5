@@ -17,8 +17,8 @@ int main() {
 	MovieRepository userWatchlist = MovieRepository();
 
 	//Load the databases from the files
-	movieDatabase.loadFromFile("movieDatabase.txt");
-	userWatchlist.loadFromFile("userWatchlist.txt");
+	movieDatabase.loadFromFile("movieDatabase.csv");
+	userWatchlist.loadFromFile("userWatchlist.csv");
 	
 	std::cout << "0. Admin mode\n1. User mode\n";
 

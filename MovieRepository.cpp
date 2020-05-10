@@ -161,9 +161,9 @@ void MovieRepository::listMoviesByGenre(std::string genre) {
 
 void MovieRepository::iterateMoviesURLByGenre(std::string genre, MovieRepository& watchlist) {
 
-
+	//Iterate over all the movies
 	for (int i = 0; i < movieList.size(); i++) {
-
+		//Check if there is a genre or if you should iterate over all the movies
 		if (!genre.empty()) {
 
 			if (movieList[i].genre == genre) {
@@ -171,6 +171,8 @@ void MovieRepository::iterateMoviesURLByGenre(std::string genre, MovieRepository
 				std::cout << movieList[i] << std::endl;
 
 				std::cout << "Playing trailer...\n";
+
+				//Open the browser with the trailer
 
 				ShellExecuteA(0, 0, movieList[i].trailer.c_str(), 0, 0, SW_SHOW);
 
@@ -193,6 +195,7 @@ void MovieRepository::iterateMoviesURLByGenre(std::string genre, MovieRepository
 
 					}
 				}
+				//Check user input
 				switch (watchlistOption) {
 
 					case 0:
@@ -224,6 +227,7 @@ void MovieRepository::iterateMoviesURLByGenre(std::string genre, MovieRepository
 
 			std::cout << "Playing trailer...\n";
 
+			//Open the browser with the trailer
 			ShellExecuteA(0, 0, movieList[i].trailer.c_str(), 0, 0, SW_SHOW);
 
 			std::cout << "1. Add the movie to your watchlist\n2. Skip movie\n0. Exit to main menu\n";
@@ -245,6 +249,7 @@ void MovieRepository::iterateMoviesURLByGenre(std::string genre, MovieRepository
 
 				}
 			}
+			//Check user input 
 			switch (watchlistOption) {
 
 				case 0:

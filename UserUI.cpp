@@ -42,7 +42,7 @@ void UserUI::startUserProgramLoop(MovieRepository movieDatabase, MovieRepository
 
 				shouldExit = true;
 
-				userWatchlist.saveToFile("userWatchlist.txt");
+				userWatchlist.saveToFile("userWatchlist.csv");
 
 				std::cout << "\nGood bye!";
 				break;
@@ -118,7 +118,7 @@ void UserUI::startUserProgramLoop(MovieRepository movieDatabase, MovieRepository
 			case 4:
 			{
 
-				ShellExecuteA(0, 0, "userWatchlist.txt", 0, 0, SW_SHOW);
+				ShellExecuteA(0, 0, "userWatchlist.csv", 0, 0, SW_SHOW);
 
 				break;
 			}

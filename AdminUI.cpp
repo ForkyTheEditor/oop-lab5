@@ -39,7 +39,7 @@ void AdminUI::startAdminProgramLoop(MovieRepository movieDatabase) {
 				
 				shouldExit = true;
 				
-				movieDatabase.saveToFile("movieDatabase.txt");
+				movieDatabase.saveToFile("movieDatabase.csv");
 
 
 				std::cout << "\nGood bye!";
