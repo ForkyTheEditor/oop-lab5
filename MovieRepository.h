@@ -46,4 +46,10 @@ public:
 	//Adds 1 to the likes of the movie at index index
 	void likeMovie(int index);
 
+	//Saves the repository to a file named filename
+	void saveToFile(std::string filename);
+
+	//Loads the repository from the given file
+	void loadFromFile(std::string filename);
+
 };

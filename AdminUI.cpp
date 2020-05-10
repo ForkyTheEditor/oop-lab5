@@ -39,6 +39,9 @@ void AdminUI::startAdminProgramLoop(MovieRepository movieDatabase) {
 				
 				shouldExit = true;
 				
+				movieDatabase.saveToFile("movieDatabase.txt");
+
+
 				std::cout << "\nGood bye!";
 				break;
 

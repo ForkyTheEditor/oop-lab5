@@ -4,7 +4,60 @@
 #define NOMINMAX
 #include <Windows.h>
 #include <shellapi.h>
+#include <fstream>
+#include <sstream>
 
+
+void MovieRepository::saveToFile(std::string filename) {
+
+	std::ofstream output_file;
+	output_file.open(filename, std::ios::out);
+
+
+	//Write movies to file one by one
+	//Separate them by newline
+	for (int i = 0; i < movieList.size(); i++) {
+
+		output_file << movieList[i].serialize() << std::endl;
+	}
+
+	output_file.close();
+
+}
+
+void MovieRepository::loadFromFile(std::string filename) {
+
+	std::ifstream input_file;
+	input_file.open(filename, std::ios::in);
+
+	std::string line;
+
+	//Loop through the file and add all the movies to the list
+	while (std::getline(input_file,line)) {
+
+		std::stringstream stream = std::stringstream(line);
+
+		std::string newTitle;
+		std::string newGenre;
+		std::string newStringYear;
+		std::string newStringLikes;
+		std::string newTrailer;
+
+		std::getline(stream, newTitle, ',');
+		std::getline(stream, newGenre, ',');
+		std::getline(stream, newStringYear, ',');
+		std::getline(stream, newStringLikes, ',');
+		std::getline(stream, newTrailer, ',');
+
+		int newYear = std::stoi(newStringYear);
+		int newLikes = std::stoi(newStringLikes);
+
+		Movie newMovie = Movie(newTitle, newGenre, newYear, newLikes, newTrailer);
+
+		movieList.push_back(newMovie);
+
+	}
+}
 
 void MovieRepository::addMovie(Movie newMovie) {
 

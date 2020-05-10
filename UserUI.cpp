@@ -4,11 +4,14 @@
 #include "Movie.h"
 #include "MovieRepository.h"
 #include <algorithm>
+#define NOMINMAX
+#include <Windows.h>
+#include <shellapi.h>
 
 void UserUI::startUserProgramLoop(MovieRepository movieDatabase, MovieRepository userWatchlist) {
 
 	bool shouldExit = false;
-	std::string menuText = "\nUser mode\n1. List movies by genre\n2. View watchlist\n3. Remove from watchlist\n0. Exit program\n";
+	std::string menuText = "\nUser mode\n1. List movies by genre\n2. View watchlist\n3. Remove from watchlist\n4. Open watchlist in notepad\n0. Exit program\n";
 
 
 	while (!shouldExit) {
@@ -38,6 +41,8 @@ void UserUI::startUserProgramLoop(MovieRepository movieDatabase, MovieRepository
 			{
 
 				shouldExit = true;
+
+				userWatchlist.saveToFile("userWatchlist.txt");
 
 				std::cout << "\nGood bye!";
 				break;
@@ -108,6 +113,13 @@ void UserUI::startUserProgramLoop(MovieRepository movieDatabase, MovieRepository
 				
 
 				userWatchlist.deleteMovie(movieChoice);
+				break;
+			}
+			case 4:
+			{
+
+				ShellExecuteA(0, 0, "userWatchlist.txt", 0, 0, SW_SHOW);
+
 				break;
 			}
 		}

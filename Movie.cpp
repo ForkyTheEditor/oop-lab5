@@ -24,7 +24,7 @@ bool operator == (Movie m1, Movie m2) {
 	return false;
 }
 
-ostream& operator << (ostream& os, Movie m1) {
+std::ostream& operator << (std::ostream& os, Movie m1) {
 
 	os << m1.title + " (" + std::to_string(m1.year) + ") " + "Genre: " + m1.genre + "; Likes: " + std::to_string(m1.likes);
 
@@ -32,17 +32,33 @@ ostream& operator << (ostream& os, Movie m1) {
 
 }
 
+
+std::string Movie::serialize() {
+
+	std::string returnString;
+
+	returnString = this->title + "," + this->genre + "," + std::to_string(this->year) + "," + std::to_string(this->likes) + "," + this->trailer;
+	
+	return returnString;
+
+}
+
 Movie Movie::takeMovieInput() {
+
+	//Flush the cin..
+	std::cin.clear();
+	std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 
 	std::string newTitle = "";
 
 	std::cout << "\nMovie's title: ";
-	std::cin >> newTitle;
+	std::getline(std::cin, newTitle);
 
 	std::string newGenre = "";
 
 	std::cout << "\nMovie's genre: ";
-	std::cin >> newGenre;
+	std::getline(std::cin, newGenre);
+
 
 	int newYear = -1;
 

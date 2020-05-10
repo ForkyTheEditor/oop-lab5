@@ -16,17 +16,9 @@ int main() {
 	MovieRepository movieDatabase = MovieRepository();
 	MovieRepository userWatchlist = MovieRepository();
 
-	//Populate the database
-	movieDatabase.addMovie(Movie("Monty Python and the Holy Grail", "Comedy", 1975, 156333, "https://www.youtube.com/watch?v=scD4_ZVDD-8"));
-	movieDatabase.addMovie(Movie("Up", "Animation", 2009, 152332333, "https://www.youtube.com/watch?v=dQw4w9WgXcQ"));
-	movieDatabase.addMovie(Movie("The Prestige", "Thriller", 2006, 652333, "https://www.youtube.com/watch?v=o4gHCmTQDVI"));
-	movieDatabase.addMovie(Movie("Midnight Cowboy", "Buddy Drama", 1969, 342144, "https://www.youtube.com/watch?v=c412hqucHKw"));
-	movieDatabase.addMovie(Movie("A Fistful of Dollars", "Spaghetti Western", 1964, 32444, "https://www.youtube.com/watch?v=HjjDOdaFZg0"));
-	movieDatabase.addMovie(Movie("For A Few Dollars More", "Spaghetti Western", 1965, 55244, "https://www.youtube.com/watch?v=mLXQltR7vUQ"));
-	movieDatabase.addMovie(Movie("Shawshank Redemption", "Drama", 1994, 5525444, "https://www.youtube.com/watch?v=6hB3S9bIaco"));
-	movieDatabase.addMovie(Movie("The Lord of the Rings: The Fellowship of the Ring", "Fantasy", 2001, 55254444412, "https://www.youtube.com/watch?v=V75dMMIW2B4"));
-	movieDatabase.addMovie(Movie("The Lord of the Rings: The Two Towers", "Fantasy", 2002, 56254444412, "https://www.youtube.com/watch?v=LbfMDwc4azU"));
-	movieDatabase.addMovie(Movie("The Lord of the Rings: The Return of the King", "Fantasy", 2003, 995254444412, "https://www.youtube.com/watch?v=NUIZvAe3RBg"));
+	//Load the databases from the files
+	movieDatabase.loadFromFile("movieDatabase.txt");
+	userWatchlist.loadFromFile("userWatchlist.txt");
 	
 	std::cout << "0. Admin mode\n1. User mode\n";
 
