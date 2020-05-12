@@ -6,6 +6,7 @@
 #include <shellapi.h>
 #include <fstream>
 #include <sstream>
+#include "BadInputException.h"
 
 
 void MovieRepository::saveToFile(std::string filename) {
@@ -63,6 +64,7 @@ void MovieRepository::addMovie(Movie newMovie) {
 
 	for (int i = 0; i < movieList.size(); i++) {
 
+		//Only add the movie if it isnt in the list
 		if (newMovie == movieList[i]) {
 
 			std::cout << "Movie is already in the database!\n";
@@ -78,6 +80,7 @@ void MovieRepository::addMovie(Movie newMovie) {
 
 void MovieRepository::deleteMovie(Movie movieToDelete) {
 
+	//Iterate through the list to find the movie
 	for (int i = 0; i < movieList.size(); i++) {
 
 		if (movieList[i] == movieToDelete) {
@@ -90,6 +93,7 @@ void MovieRepository::deleteMovie(Movie movieToDelete) {
 
 void MovieRepository::deleteMovie(int index) {
 
+	//Delete at index
 	if (index > 0 && index < movieList.size() - 1) {
 
 		movieList.erase(movieList.begin() + index);
@@ -192,6 +196,11 @@ void MovieRepository::iterateMoviesURLByGenre(std::string genre, MovieRepository
 						std::cout << std::endl << "Invalid input!" << std::endl;
 
 						watchlistOption = -1;
+
+						//Throw an error
+						BadInputException b;
+						throw b;
+
 
 					}
 				}

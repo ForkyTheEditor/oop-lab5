@@ -7,6 +7,8 @@
 #define NOMINMAX
 #include <Windows.h>
 #include <shellapi.h>
+#include "BadInputException.h"
+
 
 void UserUI::startUserProgramLoop(MovieRepository movieDatabase, MovieRepository userWatchlist) {
 
@@ -28,9 +30,14 @@ void UserUI::startUserProgramLoop(MovieRepository movieDatabase, MovieRepository
 		//Check if the input is incorrect 
 		if (std::cin.fail()) {
 
+			//Flush the cin
 			std::cin.clear();
 			std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 			std::cout << std::endl << "Invalid input!" << std::endl;
+
+			//Throw an error
+			BadInputException b;
+			throw b;
 
 			userInput = -1;
 		}
@@ -89,6 +96,10 @@ void UserUI::startUserProgramLoop(MovieRepository movieDatabase, MovieRepository
 						std::cout << std::endl << "Invalid input!" << std::endl;
 
 						movieChoice = -1;
+
+						//Throw an error
+						BadInputException b;
+						throw b;
 
 					}
 

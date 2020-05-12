@@ -1,6 +1,7 @@
 #include "Movie.h"
 #include <iostream>
 #include <string>
+#include "BadInputException.h"
 
 Movie::Movie(std::string newTitle, std::string newGenre, int newYear, int newLikes, std::string newTrailer) {
 
@@ -75,6 +76,10 @@ Movie Movie::takeMovieInput() {
 
 			newYear = -1;
 
+			//Throw an error
+			BadInputException b;
+			throw b;
+
 		}
 	}
 
@@ -96,6 +101,10 @@ Movie Movie::takeMovieInput() {
 			std::cout << std::endl << "Invalid input!" << std::endl;
 
 			newLikes = -1;
+
+			//Throw an error
+			BadInputException b;
+			throw b;
 
 		}
 		std::cin.clear();
